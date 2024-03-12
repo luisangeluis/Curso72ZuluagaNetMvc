@@ -44,10 +44,27 @@ namespace Orders.Backend.Controllers
             return Ok(country);
         }
 
+        //El id del pais para modificar lo mandoo por body
         [HttpPut]
         public async Task<IActionResult> PutAsync(Country country)
         {
             _context.Update(country);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var country = await _context.Countries.FindAsync(id);
+
+            if (country == null)
+            {
+                return NotFound();
+            }
+
+            _context.Remove(country);
             await _context.SaveChangesAsync();
 
             return NoContent();
