@@ -1,0 +1,35 @@
+﻿@page "/countries"
+@inject IRepository repository
+
+<h3>Paises</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Pais</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Colombia</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>Argentina</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>Italia</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>Peru</th>
+            <th></th>
+        </tr>
+    </tbody>
+</table>
+@code {
+    public List<Country>? Countries { get; set; }
+
+}
