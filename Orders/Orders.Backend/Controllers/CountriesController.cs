@@ -19,7 +19,8 @@ namespace Orders.Backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAsync()
         {
-            return Ok(await _context.Countries.ToListAsync());
+            //Le deja de hacer seguimiento a la consulta
+            return Ok(await _context.Countries.AsNoTracking().ToListAsync());
         }
 
         [HttpGet("{id}")]
